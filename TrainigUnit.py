@@ -47,10 +47,6 @@ def generateModel(intentsFile):
         labels = sorted(labels)
 
         training, output = pu.defineTrainingData(docs_x, docs_y, labels, words)
-        # print(training);
-        # print("-----------------")
-        # print(training[0])
-        # exit();
         storeModels(words, labels, training, output)
         model = defineModel(training, output)
         model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
